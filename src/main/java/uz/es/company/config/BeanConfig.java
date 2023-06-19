@@ -11,7 +11,6 @@ public class BeanConfig {
 
     @Bean
     public ModelMapper modelMapper() {
-        modelMapper().getConfiguration().setSkipNullEnabled(true);
         return new ModelMapper();
     }
 
