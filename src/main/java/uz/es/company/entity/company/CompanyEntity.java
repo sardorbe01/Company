@@ -30,7 +30,7 @@ public class CompanyEntity extends BaseEntity {
     @Column(nullable = false)
     private String phoneNumber;
 
-    @ManyToOne
-    private UserEntity users;
+//    @ManyToOne
+//    private UserEntity users;
 
 }
