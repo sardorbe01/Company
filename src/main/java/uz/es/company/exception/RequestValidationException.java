@@ -16,6 +16,10 @@ private String message;
         this.message= errorMessage.toString();
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
 
 }
 
