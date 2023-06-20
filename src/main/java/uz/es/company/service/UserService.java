@@ -8,10 +8,12 @@ import uz.es.company.dto.request.LoginRequestDto;
 import uz.es.company.dto.request.UserRequestDto;
 import uz.es.company.dto.response.JwtResponse;
 import uz.es.company.entity.user.UserEntity;
+import uz.es.company.entity.user.role.UserRole;
 import uz.es.company.exception.DataNotFoundException;
 import uz.es.company.repository.UserRepository;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,8 +24,9 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
 
-    public UserEntity save(UserRequestDto userRequestDto) {
+    public UserEntity save(UserRequestDto userRequestDto, List<UserRole> roles) {
         UserEntity user = modelMapper.map(userRequestDto, UserEntity.class);
+        user.setRoles(roles);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
 
