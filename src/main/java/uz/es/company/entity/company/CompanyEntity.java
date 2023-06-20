@@ -2,8 +2,13 @@ package uz.es.company.entity.company;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
-import uz.es.entity.BaseEntity;
+import org.w3c.dom.stylesheets.LinkStyle;
+import uz.es.company.entity.BaseEntity;
+import uz.es.company.entity.user.UserEntity;
+
+import java.util.List;
 
 @Entity(name = "company")
 @AllArgsConstructor
@@ -24,5 +29,8 @@ public class CompanyEntity extends BaseEntity {
     private String website;
     @Column(nullable = false)
     private String phoneNumber;
+
+    @ManyToOne
+    private UserEntity users;
 
 }
