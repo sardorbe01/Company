@@ -8,6 +8,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import uz.es.company.dto.request.UserRequestDto;
 import uz.es.company.entity.user.UserEntity;
+import uz.es.company.entity.user.role.UserRole;
 import uz.es.company.exception.RequestValidationException;
 import uz.es.company.service.UserService;
 
@@ -32,7 +33,7 @@ public class UserController {
             List<ObjectError> allErrors = bindingResult.getAllErrors();
             throw new RequestValidationException(allErrors);
         }
-        return ResponseEntity.ok(userService.save(userRequestDto));
+        return ResponseEntity.ok(userService.save(userRequestDto, List.of(UserRole.USER)));
     }
 
     @GetMapping("/get-user")
