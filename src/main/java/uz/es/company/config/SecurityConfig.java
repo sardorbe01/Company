@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizer) -> {
                     authorizer
                             .requestMatchers("/api/v1/auth/**").permitAll()
+                            .requestMatchers("company/v1/add").permitAll()
                             .anyRequest().authenticated();
                 })
                 .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

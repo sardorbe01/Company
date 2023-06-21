@@ -19,22 +19,22 @@ import java.util.UUID;
 @RequestMapping("/company/v1")
 @RequiredArgsConstructor
 public class CompanyController {
-    private final CompanyService companyService;
+//    @PreAuthorize(value = "hasRole('ADMIN')")
 
     @PostMapping("/add")
-    @PreAuthorize(value = "hasRole('ADMIN')")
-
     public ResponseEntity<CompanyEntity> add(
-            @RequestBody CompanyRequestDto companyRequestDto,
-            BindingResult bindingResult
+            @RequestBody CompanyRequestDto companyRequestDto
+//            BindingResult bindingResult
     ) {
-        if (bindingResult.hasErrors()) {
-            List<ObjectError> allErrors = bindingResult.getAllErrors();
-            throw new RequestValidationException(allErrors);
-
-        }
+//        if (bindingResult.hasErrors()) {
+//            List<ObjectError> allErrors = bindingResult.getAllErrors();
+//            throw new RequestValidationException(allErrors);
+//
+//        }
         return ResponseEntity.ok(companyService.save(companyRequestDto));
     }
+
+    private final CompanyService companyService;
 
     @GetMapping("/get-company")
     @PreAuthorize(value = "hasRole('ADMIN')")

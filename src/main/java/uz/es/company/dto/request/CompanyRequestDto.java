@@ -14,7 +14,7 @@ public class CompanyRequestDto {
     @NotBlank(message = "Name can not be empty")
     private String name;
     @NotBlank(message = "Director name can not be empty")
-    private String directorName;
+    private String directorFullName;
     @NotBlank(message = "Address can not be empty")
     private String address;
     @Email

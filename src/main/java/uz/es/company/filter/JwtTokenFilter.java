@@ -25,7 +25,7 @@ private final JwtService jwtService;
             FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader("authorization");
 
-        if(token == null || !token.startsWith("Bearer ")) {
+        if(token == null || !token.startsWith("Bearer ")){
             filterChain.doFilter(request, response);
             return;
         }

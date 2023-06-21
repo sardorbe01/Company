@@ -21,7 +21,7 @@ import java.util.List;
 @Builder
 
 public class UserEntity extends BaseEntity implements UserDetails {
-    @Column(unique = true, nullable = false)
+//    @Column(unique = true, nullable = false)
     private String passportNumber;
 
     private String surname;

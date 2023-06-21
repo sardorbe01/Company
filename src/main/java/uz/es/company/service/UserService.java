@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import uz.es.company.dto.request.LoginRequestDto;
 import uz.es.company.dto.request.UserRequestDto;
 import uz.es.company.dto.response.JwtResponse;
+import uz.es.company.entity.company.CompanyEntity;
 import uz.es.company.entity.user.UserEntity;
 import uz.es.company.entity.user.role.UserRole;
 import uz.es.company.exception.DataNotFoundException;
+import uz.es.company.repository.CompanyRepository;
 import uz.es.company.repository.UserRepository;
 
 import java.security.Principal;
@@ -19,6 +21,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+    private final CompanyRepository companyRepository;
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
@@ -27,7 +30,9 @@ public class UserService {
     public UserEntity save(UserRequestDto userRequestDto, List<UserRole> roles) {
         UserEntity user = modelMapper.map(userRequestDto, UserEntity.class);
         user.setRoles(roles);
+        CompanyEntity company = companyRepository.findCompanyEntityByName(userRequestDto.getCompanyName()).orElseThrow(() -> new DataNotFoundException("Company not found"));
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setCompany(company);
         return userRepository.save(user);
 
     }
