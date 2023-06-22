@@ -1,5 +1,11 @@
 package uz.es.company.controller;
-
+/*
+* bu api admin va signUp qilgan user uchun ochiq
+* add faqat admin roliga ega user yangi user qo`shishi mumkun
+* delete faqat admin ro`liga ega userni o`chirishi mumkun
+* update admin va user uchun ochiq userham o`zini malumotlarini o`zgartirishi mumkun
+* getById faqat admin uchun id orqali userni topishi mumkun
+*/
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

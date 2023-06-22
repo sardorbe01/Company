@@ -1,5 +1,11 @@
 package uz.es.company.controller;
-
+/*
+* bu api faqat admin uchun
+* add yangi kompaniya qo`shishi mumkun
+* update o`zgartirish kiritish uchun
+* delete o`chirish uchun
+* getById id orqali qidirish ushun
+* */
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
