@@ -2,8 +2,8 @@ package uz.es.company.controller;
 /*
 * Bu tizim login va signUp uchun ishlaydi;
 * login api orqali hamma user kirishi mumkin bu yo`l hama uchun ochiq
-* user signUp bu yo`l login qilgan user uchun
-* admin signUp admin roliga ega user uchun signUp qilinganda adminPage ga o`tiladi
+* user signUp bu yo`l user uchun
+* admin signUp admin roliga ega user uchun signUp qilinganda loginga login qilingandan keyin adminPage ga o`tiladi
 */
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
